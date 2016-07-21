@@ -1,3 +1,4 @@
+'use strict';
 const fs = require('fs');
 const acorn = require('acorn-jsx/inject')(require('acorn'));
 
