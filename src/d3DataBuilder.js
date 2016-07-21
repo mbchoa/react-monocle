@@ -1,6 +1,5 @@
 'use strict';
 const reactParser = require('./reactParser');
-const cloneDeep = require('lodash.clonedeep');
 
 /**
  * Takes in a formatted object and returns the tree object that D3 will need
@@ -9,7 +8,6 @@ const cloneDeep = require('lodash.clonedeep');
  */
 function d3DataBuilder(obj) {
   if (!obj.ENTRY) throw new Error('Entry component not found');
-  const ENTRY = obj.ENTRY;
   const formatted = {};
 
 // parsing AST into formatted objects based on ES5/ES6 syntax

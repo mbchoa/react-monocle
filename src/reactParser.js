@@ -1,7 +1,7 @@
 'use strict';
 
 const acorn = require('acorn-jsx');
-const esrecurse = require('esrecurse');
+const esrecurse = require('../esrecurse/esrecurse');
 const escodegen = require('escodegen');
 const esquery = require('../esquery/esquery');
 const bfs = require('acorn-bfs');
@@ -35,7 +35,6 @@ function getReactProps(node, parent) {
   return node.openingElement.attributes
     .map(attribute => {
       const name = attribute.name.name;
-      let valueType;
       let valueName;
       if (attribute.value === null) valueName = undefined;
       else if (attribute.value.type === 'Literal') valueName = attribute.value.value;
@@ -68,13 +67,11 @@ function getReactProps(node, parent) {
           methods: [],
         };
         valueName = output;
-      } else valueName = attribute.value.expression.property.name;
-      // if (attribute.value && attribute.value.expression && attribute.value.expression.object && attribute.value.expression.object.property) {
-      //   valueType = attribute.value.expression.object.property.name;
-      // }
+      } else throw new Error(`Unsupported prop type ${attribute.value.expression.type}, please notify the react-monocle team!`);
+
       return {
         name,
-        value: valueType ? `${valueType}.${valueName}` : valueName,
+        value: valueName,
         parent,
       };
     });
