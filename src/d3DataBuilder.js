@@ -37,7 +37,7 @@ function d3DataBuilder(obj) {
         });
       }
     });
-  };
+  }
   formatted.monocleENTRY = obj.ENTRY;
 
   const result = cloneDeep(formatted[ENTRY]);
@@ -50,7 +50,7 @@ function d3DataBuilder(obj) {
   //     if (formatted.hasOwnProperty(node.children[i].name)) {
   //       node.children[i].children = cloneDeep(formatted[node.children[i].name].children);
   //       // node.children[i].state = cloneDeep(formatted[node.children[i].name].state);
-  //     } 
+  //     }
   //     // else throw new Error('Parse Error: Could not find needed component');
   //     if (node.children[i].children.length > 0) treeAddition(node.children[i]); // if the component has nested components, recurse through
   //   }

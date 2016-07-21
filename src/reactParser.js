@@ -349,7 +349,7 @@ function getES5ReactComponents(ast) {
   if (higherOrderFunc.length > 0) iter = iter.concat(higherOrderFunctionFinder(higherOrderFunc, output.name));
 
   if (outside) output.children.push(outside);
-  output.children.forEach((ele, i)=> {
+  output.children.forEach((ele, i) => {
     checker[ele.name] = i;
   });
 
@@ -440,7 +440,7 @@ function getES6ReactComponents(ast) {
   });
 
   if (outside) output.children.push(outside);
-  output.children.forEach((ele, i)=> {
+  output.children.forEach((ele, i) => {
     checker[ele.name] = i;
   });
 
